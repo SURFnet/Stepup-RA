@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6a24f6f7e85dafb12ce43916d8eda9c",
+    "content-hash": "67f881d3a8fd8ada9f0a2610d8028314",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -2472,52 +2472,6 @@
             "time": "2019-02-21T08:24:11+00:00"
         },
         {
-            "name": "surfnet/stepup-u2f-bundle",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/OpenConext/Stepup-u2f-bundle.git",
-                "reference": "992f91db04afaad98f0d10645d81f4e3ea6742d0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/OpenConext/Stepup-u2f-bundle/zipball/992f91db04afaad98f0d10645d81f4e3ea6742d0",
-                "reference": "992f91db04afaad98f0d10645d81f4e3ea6742d0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4|^7",
-                "symfony/config": ">=2.7,<4",
-                "symfony/dependency-injection": ">=2.7,<4",
-                "symfony/form": ">=2.7,<4",
-                "symfony/http-kernel": ">=2.7,<4",
-                "symfony/validator": ">=2.7,<4",
-                "yubico/u2flib-server": "^0.1.0"
-            },
-            "require-dev": {
-                "matthiasnoback/symfony-config-test": "^2.2",
-                "mockery/mockery": "~0.9",
-                "phpmd/phpmd": "^2.6",
-                "phpunit/phpunit": "^5.7",
-                "sebastian/phpcpd": "^2.0",
-                "sensiolabs/security-checker": "^3.0",
-                "squizlabs/php_codesniffer": "^1.0",
-                "symfony/phpunit-bridge": "^3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Surfnet\\StepupU2fBundle\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "The SURFnet Step-up U2F bundle contains server-side device verification, and the necessary forms and resources to enable client-side U2F interaction with Step-up Identities",
-            "time": "2018-08-29T12:25:15+00:00"
-        },
-        {
             "name": "symfony/assetic-bundle",
             "version": "v2.8.2",
             "source": {
@@ -3426,37 +3380,6 @@
                 "validate"
             ],
             "time": "2018-12-25T11:19:39+00:00"
-        },
-        {
-            "name": "yubico/u2flib-server",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Yubico/php-u2flib-server.git",
-                "reference": "71ad5f0b7c796966da356eecd5b583ac852e92a1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Yubico/php-u2flib-server/zipball/71ad5f0b7c796966da356eecd5b583ac852e92a1",
-                "reference": "71ad5f0b7c796966da356eecd5b583ac852e92a1",
-                "shasum": ""
-            },
-            "require": {
-                "ext-openssl": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "description": "Library for U2F implementation",
-            "homepage": "https://developers.yubico.com/php-u2flib-server",
-            "time": "2015-03-03T08:05:16+00:00"
         }
     ],
     "packages-dev": [
@@ -5189,8 +5112,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ee/dataexporter-bundle": 20,
-        "surfnet/stepup-u2f-bundle": 20
+        "ee/dataexporter-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

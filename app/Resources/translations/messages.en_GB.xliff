@@ -1132,11 +1132,6 @@
         <target>SMS</target>
         <jms:reference-file line="23">/../src/Surfnet/StepupRa/RaBundle/Resources/views/translations.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="7c92f246db43cf7cf51f891825e9ac95422ec7ef" resname="ra.second_factor.search.type.u2f">
-        <source>ra.second_factor.search.type.u2f</source>
-        <target>U2F</target>
-        <jms:reference-file line="25">/../src/Surfnet/StepupRa/RaBundle/Resources/views/translations.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="85d8e5c7803600b08c39830c29a12bee3aa97146" resname="ra.second_factor.search.type.yubikey">
         <source>ra.second_factor.search.type.yubikey</source>
         <target>Yubikey</target>
@@ -1295,47 +1290,6 @@
         <source>ra.vetting.start_procedure.title</source>
         <target>Home</target>
         <jms:reference-file line="3">/../src/Surfnet/StepupRa/RaBundle/Resources/views/Vetting/startProcedure.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="385d56fffaf0e844dcd7b164b18741f050ba28e7" resname="ra.vetting.u2f.alert.device_reported_an_error">
-        <source>ra.vetting.u2f.alert.device_reported_an_error</source>
-        <target>The U2F device reported an error. Try again or visit your IT helpdesk.</target>
-        <jms:reference-file line="59">/../src/Surfnet/StepupRa/RaBundle/Resources/views/translations.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="467eb86ef7b096d0e14386714ef1b120c3f6b834" resname="ra.vetting.u2f.alert.error">
-        <source>ra.vetting.u2f.alert.error</source>
-        <target>The authentication using the U2F device failed. Try again or visit your IT helpdesk.</target>
-        <jms:reference-file line="60">/../src/Surfnet/StepupRa/RaBundle/Resources/views/translations.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="8ee5039bb11f19fab58a740b387c8857fd455563" resname="ra.vetting.u2f.button.authenticate">
-        <source>ra.vetting.u2f.button.authenticate</source>
-        <target>Authenticate</target>
-        <jms:reference-file line="21">/../src/Surfnet/StepupRa/RaBundle/Resources/views/Vetting/U2f/startAuthentication.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="eae85a96e8a01044af0f26eb2ce38b8ccf2ae6c9" resname="ra.vetting.u2f.button.retry">
-        <source>ra.vetting.u2f.button.retry</source>
-        <target>Retry</target>
-        <jms:reference-file line="24">/../src/Surfnet/StepupRa/RaBundle/Resources/views/Vetting/U2f/authentication.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="ab6549011fac025f39c2aacb676b93deccb89b47" resname="ra.vetting.u2f.prove_possession.title.page">
-        <source>ra.vetting.u2f.prove_possession.title.page</source>
-        <target>Authenticate using the U2F-device</target>
-        <jms:reference-file line="3">/../src/Surfnet/StepupRa/RaBundle/Resources/views/Vetting/U2f/authentication.html.twig</jms:reference-file>
-        <jms:reference-file line="4">/../src/Surfnet/StepupRa/RaBundle/Resources/views/Vetting/U2f/startAuthentication.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="a7d4fe35fee235b8c9dc4aa91bc99cea94d261e5" resname="ra.vetting.u2f.start_authentication.text.explanation">
-        <source>ra.vetting.u2f.start_authentication.text.explanation</source>
-        <target>Press the button to start authentication using the U2F-device.</target>
-        <jms:reference-file line="15">/../src/Surfnet/StepupRa/RaBundle/Resources/views/Vetting/U2f/startAuthentication.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="bd8262fc669de49d55f3f02f64897139c4f3d28a" resname="ra.vetting.u2f.text.activate_u2f_device">
-        <source>ra.vetting.u2f.text.activate_u2f_device</source>
-        <target>Activate the U2F device. This is usually performed using a button.</target>
-        <jms:reference-file line="16">/../src/Surfnet/StepupRa/RaBundle/Resources/views/Vetting/U2f/authentication.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="1c320fb7655d15c64997503b60a9e35a19a522aa" resname="ra.vetting.u2f.text.ensure_device_connected_to_pc">
-        <source>ra.vetting.u2f.text.ensure_device_connected_to_pc</source>
-        <target>Ensure your U2F device is linked to your computer.</target>
-        <jms:reference-file line="15">/../src/Surfnet/StepupRa/RaBundle/Resources/views/Vetting/U2f/authentication.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a27cb1fbe67c5a7a112850e184104c6338e3266e" resname="ra.vetting.verify_identity.text.proceed_only_when_id_match_success">
         <source>ra.vetting.verify_identity.text.proceed_only_when_id_match_success</source>

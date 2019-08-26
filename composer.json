@@ -37,7 +37,6 @@
         "surfnet/stepup-bundle": "^4.0",
         "surfnet/stepup-middleware-client-bundle": "^3.0",
         "surfnet/stepup-saml-bundle": "^4.1",
-        "surfnet/stepup-u2f-bundle": "dev-develop",
         "symfony/assetic-bundle": "~2.3",
         "symfony/monolog-bundle": "~3.1.0",
         "symfony/symfony": "3.4.*",

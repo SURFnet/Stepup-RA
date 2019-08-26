@@ -159,6 +159,3 @@ knp_paginator:
     template:
         pagination: MopaBootstrapBundle:Pagination:sliding.html.twig
         sortable: SurfnetStepupRaRaBundle:Pagination:sortable_link.html.twig
-
-surfnet_stepup_u2f:
-    app_id: "%u2f_app_id%"

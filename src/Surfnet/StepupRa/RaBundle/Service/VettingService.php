@@ -27,24 +27,17 @@ use Surfnet\StepupBundle\Service\SmsSecondFactorServiceInterface;
 use Surfnet\StepupBundle\Value\PhoneNumber\InternationalPhoneNumber;
 use Surfnet\StepupBundle\Value\SecondFactorType;
 use Surfnet\StepupMiddlewareClientBundle\Identity\Command\VetSecondFactorCommand;
-use Surfnet\StepupRa\RaBundle\Command\CreateU2fSignRequestCommand;
 use Surfnet\StepupRa\RaBundle\Command\StartVettingProcedureCommand;
 use Surfnet\StepupRa\RaBundle\Command\VerifyIdentityCommand;
-use Surfnet\StepupRa\RaBundle\Command\VerifyU2fAuthenticationCommand;
 use Surfnet\StepupRa\RaBundle\Command\VerifyYubikeyPublicIdCommand;
 use Surfnet\StepupRa\RaBundle\Exception\DomainException;
 use Surfnet\StepupRa\RaBundle\Exception\InvalidArgumentException;
 use Surfnet\StepupRa\RaBundle\Exception\LoaTooLowException;
-use Surfnet\StepupRa\RaBundle\Exception\RegistrationCodeExpiredException;
 use Surfnet\StepupRa\RaBundle\Exception\UnknownVettingProcedureException;
 use Surfnet\StepupRa\RaBundle\Repository\VettingProcedureRepository;
 use Surfnet\StepupRa\RaBundle\Service\Gssf\VerificationResult as GssfVerificationResult;
-use Surfnet\StepupRa\RaBundle\Service\U2f\AuthenticationVerificationResult;
-use Surfnet\StepupRa\RaBundle\Service\U2f\SignRequestCreationResult;
 use Surfnet\StepupRa\RaBundle\Value\DateTime;
 use Surfnet\StepupRa\RaBundle\VettingProcedure;
-use Surfnet\StepupU2fBundle\Dto\SignRequest;
-use Surfnet\StepupU2fBundle\Dto\SignResponse;
 use Symfony\Component\Translation\TranslatorInterface;
 
 /**
@@ -70,11 +63,6 @@ class VettingService
      * @var \Surfnet\StepupRa\RaBundle\Service\GssfService
      */
     private $gssfService;
-
-    /**
-     * @var \Surfnet\StepupRa\RaBundle\Service\U2fService
-     */
-    private $u2fService;
 
     /**
      * @var \Surfnet\StepupRa\RaBundle\Service\CommandService
@@ -105,7 +93,6 @@ class VettingService
         SmsSecondFactorServiceInterface $smsSecondFactorService,
         YubikeySecondFactorService $yubikeySecondFactorService,
         GssfService $gssfService,
-        U2fService $u2fService,
         CommandService $commandService,
         VettingProcedureRepository $vettingProcedureRepository,
         TranslatorInterface $translator,
@@ -115,7 +102,6 @@ class VettingService
         $this->smsSecondFactorService = $smsSecondFactorService;
         $this->yubikeySecondFactorService = $yubikeySecondFactorService;
         $this->gssfService = $gssfService;
-        $this->u2fService = $u2fService;
         $this->commandService = $commandService;
         $this->vettingProcedureRepository = $vettingProcedureRepository;
         $this->translator = $translator;
@@ -238,15 +224,16 @@ class VettingService
         }
 
         $command->phoneNumber = $phoneNumber;
-        $command->body        = $this->translator->trans('ra.vetting.sms.challenge_body', [], 'messages', $identity->preferredLocale);
-        $command->identity    = $procedure->getSecondFactor()->identityId;
+        $command->body = $this->translator->trans('ra.vetting.sms.challenge_body', [], 'messages',
+            $identity->preferredLocale);
+        $command->identity = $procedure->getSecondFactor()->identityId;
         $command->institution = $procedure->getSecondFactor()->institution;
 
         return $this->smsSecondFactorService->sendChallenge($command);
     }
 
     /**
-     * @param string                   $procedureId
+     * @param string $procedureId
      * @param VerifyPossessionOfPhoneCommand $command
      * @return OtpVerification
      * @throws UnknownVettingProcedureException
@@ -269,7 +256,7 @@ class VettingService
     }
 
     /**
-     * @param string                       $procedureId
+     * @param string $procedureId
      * @param VerifyYubikeyPublicIdCommand $command
      * @return YubikeySecondFactor\VerificationResult
      */
@@ -322,47 +309,6 @@ class VettingService
         return $result;
     }
 
-    /**
-     * @param string $procedureId
-     * @return SignRequestCreationResult
-     */
-    public function createU2fSignRequest($procedureId)
-    {
-        $procedure = $this->getProcedure($procedureId);
-
-        $command = new CreateU2fSignRequestCommand();
-        $command->keyHandle = $procedure->getSecondFactor()->secondFactorIdentifier;
-        $command->identityId = $procedure->getSecondFactor()->identityId;
-        $command->institution = $procedure->getSecondFactor()->institution;
-
-        return $this->u2fService->createSignRequest($command);
-    }
-
-    /**
-     * @param string       $procedureId
-     * @param SignRequest  $signRequest
-     * @param SignResponse $signResponse
-     * @return AuthenticationVerificationResult
-     */
-    public function verifyU2fAuthentication($procedureId, SignRequest $signRequest, SignResponse $signResponse)
-    {
-        $procedure = $this->getProcedure($procedureId);
-
-        $command = new VerifyU2fAuthenticationCommand();
-        $command->identityId = $procedure->getSecondFactor()->identityId;
-        $command->institution = $procedure->getSecondFactor()->institution;
-        $command->signRequest = $signRequest;
-        $command->signResponse = $signResponse;
-
-        $result = $this->u2fService->verifyAuthentication($command);
-
-        if ($result->wasSuccessful()) {
-            $procedure->verifySecondFactorIdentifier($signResponse->keyHandle);
-            $this->vettingProcedureRepository->store($procedure);
-        }
-
-        return $result;
-    }
 
     /**
      * @param string $procedureId
