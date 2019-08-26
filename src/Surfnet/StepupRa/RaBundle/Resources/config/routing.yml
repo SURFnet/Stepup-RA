@@ -88,21 +88,6 @@ ra_vetting_gssf_metadata:
     methods: [GET]
     defaults: { _controller: SurfnetStepupRaRaBundle:Vetting/Gssf:metadata }
 
-ra_vetting_u2f_start_authentication:
-    path: /vetting-procedure/{procedureId}/u2f/start
-    methods: [GET]
-    defaults: { _controller: SurfnetStepupRaRaBundle:Vetting/U2f:startAuthentication }
-
-ra_vetting_u2f_authentication:
-    path: /vetting-procedure/{procedureId}/u2f/authentication
-    methods: [GET]
-    defaults: { _controller: SurfnetStepupRaRaBundle:Vetting/U2f:authentication }
-
-ra_vetting_u2f_prove_possession:
-    path: /vetting-procedure/{procedureId}/u2f/prove-possession
-    methods: [POST]
-    defaults: { _controller: SurfnetStepupRaRaBundle:Vetting/U2f:provePossession }
-
 ra_vetting_verify_identity:
     path:     /vetting-procedure/{procedureId}/verify-identity
     methods:  [GET, POST]

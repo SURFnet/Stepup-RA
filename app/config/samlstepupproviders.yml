@@ -10,18 +10,18 @@ surfnet_stepup_ra_saml_stepup_provider:
         tiqr:
             hosted:
                 service_provider:
-                    public_key: "%gssp_tiqr_sp_publickey%"
-                    private_key: "%gssp_tiqr_sp_privatekey%"
+                    public_key: %gssp_tiqr_sp_publickey%
+                    private_key: %gssp_tiqr_sp_privatekey%
                 metadata:
-                    public_key: "%gssp_tiqr_metadata_publickey%"
-                    private_key: "%gssp_tiqr_metadata_privatekey%"
+                    public_key: %gssp_tiqr_metadata_publickey%
+                    private_key: %gssp_tiqr_metadata_privatekey%
             remote:
-                entity_id: "%gssp_tiqr_remote_entity_id%"
-                sso_url: "%gssp_tiqr_remote_sso_url%"
-                certificate: "%gssp_tiqr_remote_certificate%"
+                entity_id: %gssp_tiqr_remote_entity_id%
+                sso_url: %gssp_tiqr_remote_sso_url%
+                certificate: %gssp_tiqr_remote_certificate%
             view_config:
-                title: "%gssp_tiqr_title%"
-                page_title: "%gssp_tiqr_page_title%"
-                explanation: "%gssp_tiqr_explanation%"
-                initiate: "%gssp_tiqr_initiate%"
-                gssf_id_mismatch: "%gssp_tiqr_gssf_id_mismatch%"
+                title: %gssp_tiqr_title%
+                page_title: %gssp_tiqr_page_title%
+                explanation: %gssp_tiqr_explanation%
+                initiate: %gssp_tiqr_initiate%
+                gssf_id_mismatch: %gssp_tiqr_gssf_id_mismatch%

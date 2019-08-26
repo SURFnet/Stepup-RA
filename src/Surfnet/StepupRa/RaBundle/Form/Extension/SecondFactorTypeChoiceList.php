@@ -25,7 +25,7 @@ use Surfnet\StepupBundle\Service\SecondFactorTypeTranslationService;
 /**
  * Used to build a choice list of second factor types
  *
- * Second factor types are indexed on their identifier. Some examples: 'sms', 'tiqr', 'u2f'. These not very human
+ * Second factor types are indexed on their identifier. Some examples: 'sms', 'tiqr'. These not very human
  * readable keys are linked to a more human readable value which is read from the translator. This results in an
  * associative array like this:
  *

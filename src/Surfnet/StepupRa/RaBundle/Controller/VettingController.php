@@ -150,8 +150,6 @@ class VettingController extends Controller
                     'provider'    => $secondFactor->type
                 ]
             );
-        } elseif ($secondFactorType->isU2f()) {
-            return $this->redirectToRoute('ra_vetting_u2f_start_authentication', ['procedureId' => $procedureId]);
         } else {
             throw new RuntimeException(
                 sprintf('RA does not support vetting procedure for second factor type "%s"', $secondFactor->type)
