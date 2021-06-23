@@ -123,7 +123,7 @@ class VettingController extends Controller
             return ['form' => $form->createView()];
         }
 
-        if (!$this->getVettingService()->isLoaSufficientToStartProcedure($command)) {
+        if ($command->authorityLoa === null || !$this->getVettingService()->isLoaSufficientToStartProcedure($command)) {
             $this->addFlash('error', 'ra.form.start_vetting_procedure.loa_insufficient');
 
             $logger->notice('Cannot start new vetting procedure, Authority LoA is insufficient');
